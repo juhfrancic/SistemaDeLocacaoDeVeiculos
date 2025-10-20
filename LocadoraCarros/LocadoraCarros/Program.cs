@@ -84,33 +84,36 @@ float calcularLocacao(float precoDia)
     return precoDia * dias;
 }
 
+int continuar = 0;
+do {
+    Console.WriteLine("Escolha a opção de veiculo que deseja alocar: ");
+    Console.WriteLine("---------------------------------------------");
+    Console.WriteLine("  1. Carro");
+    Console.WriteLine("  2. Moto");
+    Console.WriteLine("  3. Caminhão");
+    Console.WriteLine("---------------------------------------------");
+    int opcao = int.Parse(Console.ReadLine());
 
-Console.WriteLine("Escolha a opção de veiculo que deseja alocar: ");
-Console.WriteLine("---------------------------------------------");
-Console.WriteLine("  1. Carro");
-Console.WriteLine("  2. Moto");
-Console.WriteLine("  3. Caminhão");
-Console.WriteLine("---------------------------------------------");
-int opcao = int.Parse(Console.ReadLine());
+
+    
+    switch (opcao)
+    {
+        case 1:
+            AdicionarCarro(veiculos);
+            break;
+        case 2:
+            AdicionarMoto(veiculos);
+            break;
+        case 3:
+            AdicionarCaminhao(veiculos);
+            break;
+        default:
+            Console.WriteLine("Opção inválida, escolha outra!");
+            break;
+
+    }
 
 
-
-switch (opcao)
-{
-    case 1:
-        AdicionarCarro(veiculos);
-        break;
-    case 2:
-        AdicionarMoto(veiculos);
-        break;
-    case 3:
-        AdicionarCaminhao(veiculos);
-        break;
-    default:
-        Console.WriteLine("Opção inválida, escolha outra!");
-        break;
-
-}
 Veiculo veiculo = veiculos.Last();
 float valorTotal = calcularLocacao(veiculo.PrecoDia);
 
@@ -131,4 +134,8 @@ Console.WriteLine("---------------------------------");
 Console.WriteLine($"O valor total da locação é: {valorTotal}");
 Console.WriteLine("---------------------------------");
 
+
+Console.WriteLine("Deseja alocar outro veículo (1.Sim) (2.Não):");
+continuar = int.Parse(Console.ReadLine());
+} while (continuar == 1) ;
 

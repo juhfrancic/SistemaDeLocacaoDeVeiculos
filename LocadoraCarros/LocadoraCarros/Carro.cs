@@ -26,6 +26,7 @@ namespace LocadoraCarros
             Console.WriteLine($"Cavalos: {Cavalos}");
             Console.WriteLine($"Quantidade assentos: {QuantidadeAssentos}");
         }
+
     }
 }
 
